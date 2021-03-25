@@ -56,6 +56,8 @@ Tip: To allow parallell run in IntelliJ, enable "Allow multiple instances" it in
 ```
 Tip: Assign and seek are mostly used to replay data or fetch a specific message
 ```
+- Client Bi-Directional Compatibility
+  - [Upgrading Apache Kafka Clients Just Got Easier](https://www.confluent.io/blog/upgrading-apache-kafka-clients-just-got-easier "Link to Confluent Homepage")
 
 # Github setup
 ```
