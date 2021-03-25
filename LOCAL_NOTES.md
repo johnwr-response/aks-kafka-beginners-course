@@ -1,4 +1,13 @@
 # Log
+
+### Section 18: Annex - Starting Kafka Differently
+- 117. Start Kafka Development environment using Docker
+```
+docker-compose -f zk-single-kafka-single.yml up
+docker-compose -f zk-single-kafka-single.yml up -d
+docker-compose -f zk-single-kafka-single.yml down
+```
+
 ### Section 6: CLI (Command Line Interface) 101
 ```
 kafka-topics --bootstrap-server localhost:9092 --list
