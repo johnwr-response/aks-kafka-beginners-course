@@ -69,6 +69,10 @@ Tip: Assign and seek are mostly used to replay data or fetch a specific message
 - [ElasticSearch Consumer: ElasticSearch setup #1](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html "The ElasticSearch Consumer gets data from your twitter topic and inserts it into ElasticSearch")
 - [ElasticSearch Consumer: ElasticSearch setup #2](https://bonsai.io/ "The ElasticSearch Consumer gets data from your twitter topic and inserts it into ElasticSearch")
 
+### Section 9: Kafka Twitter Producer & Advanced Configurations
+- Producer and Advanced Configurations Overview
+- Twitter Setup
+
 # Github setup
 ```
 git remote add origin https://github.com/johnwr-response/aks-kafka-beginners-course.git
