@@ -52,6 +52,10 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --g
 Tip: To allow parallell run in IntelliJ, enable "Allow multiple instances" it in run configuration 
 ```
 - Java Consumer with Threads
+- Java Consumer Seek and Assign
+```
+Tip: Assign and seek are mostly used to replay data or fetch a specific message
+```
 
 # Github setup
 ```
