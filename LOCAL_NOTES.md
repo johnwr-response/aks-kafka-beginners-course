@@ -45,6 +45,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --f
 kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-third-application
 ```
 - Java Producer Callbacks
+- Java Producer with Keys
 
 # Github setup
 ```
