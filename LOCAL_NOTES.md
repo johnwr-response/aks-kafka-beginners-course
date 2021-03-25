@@ -62,6 +62,12 @@ Tip: Assign and seek are mostly used to replay data or fetch a specific message
   - [Configure producers](https://kafka.apache.org/documentation/#producerconfigs "Link to Kafka Documentation")
   - [configure consumers](https://kafka.apache.org/documentation/#consumerconfigs "Link to Kafka Documentation")
 
+### Section 8: Real World Project Overview
+- [Twitter Producer: Twitter Java Client](https://github.com/twitter/hbc "The Twitter Producer gets data from Twitter based on some keywords and put them in a Kafka topic of your choice")
+- [Twitter Producer: Twitter API Credentials](https://developer.twitter.com/ "The Twitter Producer gets data from Twitter based on some keywords and put them in a Kafka topic of your choice")
+- [ElasticSearch Consumer: ElasticSearch Java Client](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/6.4/java-rest-high.html "The ElasticSearch Consumer gets data from your twitter topic and inserts it into ElasticSearch")
+- [ElasticSearch Consumer: ElasticSearch setup #1](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html "The ElasticSearch Consumer gets data from your twitter topic and inserts it into ElasticSearch")
+- [ElasticSearch Consumer: ElasticSearch setup #2](https://bonsai.io/ "The ElasticSearch Consumer gets data from your twitter topic and inserts it into ElasticSearch")
 
 # Github setup
 ```
