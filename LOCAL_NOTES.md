@@ -40,6 +40,10 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --f
 
 ### Section 7: Kafka Java Programming 101
 - Creating Kafka Project
+- Java Producer
+```
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-third-application
+```
 
 # Github setup
 ```
