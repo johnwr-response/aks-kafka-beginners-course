@@ -46,6 +46,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --g
 ```
 - Java Producer Callbacks
 - Java Producer with Keys
+- Java Consumer
 
 # Github setup
 ```
