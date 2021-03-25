@@ -47,6 +47,10 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --g
 - Java Producer Callbacks
 - Java Producer with Keys
 - Java Consumer
+- Java Consumer inside Consumer Group
+```
+Tip: To allow parallell run in IntelliJ, enable "Allow multiple instances" it in run configuration 
+```
 
 # Github setup
 ```
