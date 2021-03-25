@@ -8,6 +8,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import java.util.Properties;
 
 public class ProducerDemo {
+    @SuppressWarnings("DuplicatedCode")
     public static void main(String[] args) {
         String bootstrapServers = "localhost:9092";
 
