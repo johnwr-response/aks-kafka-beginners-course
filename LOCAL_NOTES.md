@@ -58,6 +58,10 @@ Tip: Assign and seek are mostly used to replay data or fetch a specific message
 ```
 - Client Bi-Directional Compatibility
   - [Upgrading Apache Kafka Clients Just Got Easier](https://www.confluent.io/blog/upgrading-apache-kafka-clients-just-got-easier "Link to Confluent Homepage")
+- Configuring Producers and Consumers
+  - [Configure producers](https://kafka.apache.org/documentation/#producerconfigs "Link to Kafka Documentation")
+  - [configure consumers](https://kafka.apache.org/documentation/#consumerconfigs "Link to Kafka Documentation")
+
 
 # Github setup
 ```
