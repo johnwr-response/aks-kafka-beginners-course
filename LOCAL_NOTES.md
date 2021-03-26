@@ -120,6 +120,12 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
       - `max.in.flight.requests` = 5
       - `acks` = all
 - Producer Part 3 - Safe Producer
+- Producer Compression
+  - Enabled on the producer level. No configuration required for neither brokers nor consumers
+  - `compression.type` = [none,gzip,lz4,snappy]
+    - gzip = slowest, but highest compression ratio
+  - ALWAYS use compression in production!
+  - For high throughput producers, consider tweaking the batching
 
 # Github setup
 ```
