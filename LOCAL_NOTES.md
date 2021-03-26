@@ -140,6 +140,8 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
       - A batch is allocated pr. partition, make sure not to set it too high to avoid waste of memory.
       - The average batch size metrics can be monitored using Kafka Producer Metrics.
 - Producer Part 4 - High Throughput Producer
+- Producer Default Partitions and Key Hashing
+  - keys are hashed using the murmur2 algorithm
 
 # Github setup
 ```
