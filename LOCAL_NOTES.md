@@ -142,6 +142,11 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
 - Producer Part 4 - High Throughput Producer
 - Producer Default Partitions and Key Hashing
   - keys are hashed using the murmur2 algorithm
+- [Advanced] `max.block.ms` and `buffer.memory`
+  If the producer is producing faster than the broker can receive, the records will be buffered in memory
+  - `buffer.memory` The size of the sender buffer. Default is 32 MB
+    - If this buffer is full, the .send() method will block. (Not return)
+  - `max.block.ms` The time in ms the .send() method will block before throwing an exception. Default 60000.
 
 # Github setup
 ```
