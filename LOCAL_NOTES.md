@@ -72,6 +72,7 @@ Tip: Assign and seek are mostly used to replay data or fetch a specific message
 ### Section 9: Kafka Twitter Producer & Advanced Configurations
 - Producer and Advanced Configurations Overview
 - Twitter Setup
+- Producer Part 1 - Writing Twitter Client
 
 # Github setup
 ```
