@@ -119,6 +119,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
       - `retries` = Integer.MAX
       - `max.in.flight.requests` = 5
       - `acks` = all
+- Producer Part 3 - Safe Producer
 
 # Github setup
 ```
