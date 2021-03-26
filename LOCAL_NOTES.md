@@ -73,6 +73,12 @@ Tip: Assign and seek are mostly used to replay data or fetch a specific message
 - Producer and Advanced Configurations Overview
 - Twitter Setup
 - Producer Part 1 - Writing Twitter Client
+- Producer Part 2 - Writing the Kafka Producer
+```
+kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_tweets --partitions 6 --replication-factor 1
+kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
+
+```
 
 # Github setup
 ```
