@@ -80,28 +80,38 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
 ```
 - Producer Configurations Introduction
 - acks & min.insync.replicas
-  - acks = 0 (no acks)
+  - `acks` = 0 (no acks)
     - No response is requested
     - If a broker goes offline, or an exception happens, we won't know and will lose data
     - Useful for data where it's okay to potentially lose messages
       - Metrics collection
       - Log collection
-  - acks = 1 (leader acks) {Default}
+  - `acks` = 1 (leader acks) {Default}
     - Leader response is requested, but replication is not a guarantee (happens in the background)
     - If an ack is not received, the producer may retry
     - If the leader broker goes offline, but the replicas haven't replicated the data yet, the data is lost
-  - acks = all (replicas acks)
+  - `acks` = all (replicas acks)
     - Leader + replicas ack requested
     - Added both latency and safety
     - No data loss (if enough replicas)
     - Necessary setting if you don't want to lose data
-    - Must be used in conjuction with "min.insync.replicas" (set at the broker or topic (override) level)
-  - min.insync.replicas = 2 (implies that at least 2 ISR brokers (including the leader) must respond)
+    - Must be used in conjuction with `min.insync.replicas` (set at the broker or topic (override) level)
+  - `min.insync.replicas` = 2 (implies that at least 2 ISR brokers (including the leader) must respond)
   - This means that using the following setup will only tolerate loss of 1 broker, with more the producer will receive an exception on send
-    - replication.factor=3
-    - min.insync.replicas=2
-    - acks=all
-
+    - `replication.factor`=3
+    - `min.insync.replicas`=2
+    - `acks`=all
+- retries, delivery.timeout.ms & max.in.flight.requests.per.connection
+  - retries
+    - In case of transient failures like NotEnoughReplicasException, developers are expected to handle the exceptions for data not to be lost
+    - For Kafka >= 2.1 the default number of retries are 2147483647, earlier versions has no retries by default
+      - `retry.backoff.ms` configures the time between retries. Default is 100 ms
+      - `delivery.timeout.ms` configures a timeout for retries. Default is 120000 ms
+        - records will be failed if not acknowledged within this timeout. This must be handled by the producer for data not to be lost
+    - Warning: retries can be sent out of order. With key-based ordering this can be an issue.
+      - for this the setting `max.in.flight.requests.per.connection` can control number of parallel produce requests. 
+        - Set this to 1 to ensure strict ordering (may impact throughput). The default is 5.
+  - NB! Note, all this should instead be solved by using idempotent producers.
 
 # Github setup
 ```
