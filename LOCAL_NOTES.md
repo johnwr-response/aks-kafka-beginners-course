@@ -6,6 +6,13 @@
 docker-compose -f zk-single-kafka-single.yml up
 docker-compose -f zk-single-kafka-single.yml up -d
 docker-compose -f zk-single-kafka-single.yml down
+docker-compose -f zk-single-kafka-single.yml down -v
+
+docker-compose -f zk-single-kafka-single.yml up kafka1 -d
+docker-compose -f zk-single-kafka-single.yml up kibana -d
+docker-compose -f zk-single-kafka-single.yml down kafka1
+docker-compose -f zk-single-kafka-single.yml down kibana
+
 ```
 
 ### Section 6: CLI (Command Line Interface) 101
@@ -148,6 +155,10 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
     - If this buffer is full, the .send() method will block. (Not return)
   - `max.block.ms` The time in ms the .send() method will block before throwing an exception. Default 60000.
 - Refactoring the Project
+
+### Section 10: Kafka ElasticSearch Consumer & Advanced Configurations
+- Consumer and Advanced Configuration Overview
+- Setting up ElasticSearch in the Cloud
 
 # Github setup
 ```
