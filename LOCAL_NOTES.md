@@ -139,7 +139,8 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
       - Any message bigger than the batch size will not be batched
       - A batch is allocated pr. partition, make sure not to set it too high to avoid waste of memory.
       - The average batch size metrics can be monitored using Kafka Producer Metrics.
-  
+- Producer Part 4 - High Throughput Producer
+
 # Github setup
 ```
 git remote add origin https://github.com/johnwr-response/aks-kafka-beginners-course.git

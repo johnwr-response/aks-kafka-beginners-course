@@ -77,7 +77,7 @@ public class TwitterProducer {
     public Client createTwitterClient(BlockingQueue<String> msgQueue) {
         Hosts hoseBirdHosts = new HttpHosts(Constants.STREAM_HOST);
         StatusesFilterEndpoint hoseBirdEndpoint = new StatusesFilterEndpoint();
-        List<String> terms = Lists.newArrayList("kafka", "java");
+        List<String> terms = Lists.newArrayList("kafka", "java", "bitcoin", "soccer", "usa", "sport");
         hoseBirdEndpoint.trackTerms(terms);
 
         String consumerKey = "something1";
@@ -105,6 +105,9 @@ public class TwitterProducer {
         properties.setProperty(ProducerConfig.ACKS_CONFIG, "all");
         properties.setProperty(ProducerConfig.RETRIES_CONFIG, Integer.toString(Integer.MAX_VALUE));
         properties.setProperty(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "5");
+        properties.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
+        properties.setProperty(ProducerConfig.LINGER_MS_CONFIG, "20");
+        properties.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(32*1024));
         return new KafkaProducer<>(properties);
     }
 }
