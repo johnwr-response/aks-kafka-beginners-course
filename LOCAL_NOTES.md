@@ -112,6 +112,13 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
       - for this the setting `max.in.flight.requests.per.connection` can control number of parallel produce requests. 
         - Set this to 1 to ensure strict ordering (may impact throughput). The default is 5.
   - NB! Note, all this should instead be solved by using idempotent producers.
+- Idempotent Producer
+  - Kafka detects duplicated produce.
+  - Enable by setting this property which will set the following properties
+    - `enable.idempotence` = true
+      - `retries` = Integer.MAX
+      - `max.in.flight.requests` = 5
+      - `acks` = all
 
 # Github setup
 ```
