@@ -77,8 +77,31 @@ Tip: Assign and seek are mostly used to replay data or fetch a specific message
 ```
 kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_tweets --partitions 6 --replication-factor 1
 kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
-
 ```
+- Producer Configurations Introduction
+- acks & min.insync.replicas
+  - acks = 0 (no acks)
+    - No response is requested
+    - If a broker goes offline, or an exception happens, we won't know and will lose data
+    - Useful for data where it's okay to potentially lose messages
+      - Metrics collection
+      - Log collection
+  - acks = 1 (leader acks) {Default}
+    - Leader response is requested, but replication is not a guarantee (happens in the background)
+    - If an ack is not received, the producer may retry
+    - If the leader broker goes offline, but the replicas haven't replicated the data yet, the data is lost
+  - acks = all (replicas acks)
+    - Leader + replicas ack requested
+    - Added both latency and safety
+    - No data loss (if enough replicas)
+    - Necessary setting if you don't want to lose data
+    - Must be used in conjuction with "min.insync.replicas" (set at the broker or topic (override) level)
+  - min.insync.replicas = 2 (implies that at least 2 ISR brokers (including the leader) must respond)
+  - This means that using the following setup will only tolerate loss of 1 broker, with more the producer will receive an exception on send
+    - replication.factor=3
+    - min.insync.replicas=2
+    - acks=all
+
 
 # Github setup
 ```
