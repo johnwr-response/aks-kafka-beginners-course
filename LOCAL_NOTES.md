@@ -126,7 +126,20 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
     - gzip = slowest, but highest compression ratio
   - ALWAYS use compression in production!
   - For high throughput producers, consider tweaking the batching
-
+- Producer Batching
+  - Kafka tries to send records as soon as possible in parallel by up to 5
+  - If more messages is to be sent while others are in flight, Kafka will start batching them to send them all at once.  
+  - This mechanism is controlled by two properties:
+    - `linger.ms` | Number of ms a producer is willing to wait before sending a batch out. Default is 0.
+      - By introducing some lag, i.e. 5 ms, the chances of messages being sent in batches increases
+        - this small delay can significantly increase throughput, compression and efficiency of producer
+      - If `batch.size` is reached, the batch will be sent regardless
+    - `batch.size` | Maximum number of bytes to be included in a batch. Default is 16 KB.
+      - Increasing the batch size to 32 KB or 64 KB can significantly increase compression, throughput and efficiency. 
+      - Any message bigger than the batch size will not be batched
+      - A batch is allocated pr. partition, make sure not to set it too high to avoid waste of memory.
+      - The average batch size metrics can be monitored using Kafka Producer Metrics.
+  
 # Github setup
 ```
 git remote add origin https://github.com/johnwr-response/aks-kafka-beginners-course.git
