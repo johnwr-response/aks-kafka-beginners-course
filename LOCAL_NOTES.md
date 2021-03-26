@@ -147,6 +147,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
   - `buffer.memory` The size of the sender buffer. Default is 32 MB
     - If this buffer is full, the .send() method will block. (Not return)
   - `max.block.ms` The time in ms the .send() method will block before throwing an exception. Default 60000.
+- Refactoring the Project
 
 # Github setup
 ```

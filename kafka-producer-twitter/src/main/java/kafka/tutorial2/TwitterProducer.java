@@ -1,4 +1,4 @@
-package no.responseweb.simplesteph.kafka.tutorial2;
+package kafka.tutorial2;
 
 import com.google.common.collect.Lists;
 import com.twitter.hbc.ClientBuilder;
@@ -60,12 +60,9 @@ public class TwitterProducer {
             }
             if  (msg != null) {
                 logger.info(msg);
-                producer.send(new ProducerRecord<>("twitter_tweets", null, msg), new Callback() {
-                    @Override
-                    public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                        if (e != null) {
-                            logger.error("Something bad happened, e");
-                        }
+                producer.send(new ProducerRecord<>("twitter_tweets", null, msg), (recordMetadata, e) -> {
+                    if (e != null) {
+                        logger.error("Something bad happened, e");
                     }
                 });
             }

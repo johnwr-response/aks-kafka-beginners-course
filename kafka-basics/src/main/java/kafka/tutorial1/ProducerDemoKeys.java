@@ -1,17 +1,19 @@
-package no.responseweb.simplesteph.kafka.tutorial1;
+package kafka.tutorial1;
 
-import org.apache.kafka.clients.producer.*;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-public class ProducerDemoWithCallback {
+public class ProducerDemoKeys {
     @SuppressWarnings("DuplicatedCode")
     public static void main(String[] args) {
 
-        Logger logger = LoggerFactory.getLogger(ProducerDemoWithCallback.class);
+        Logger logger = LoggerFactory.getLogger(ProducerDemoKeys.class);
 
         String bootstrapServers = "localhost:9092";
 
@@ -26,8 +28,14 @@ public class ProducerDemoWithCallback {
 
         for (int i = 0; i < 10; i++) {
 
+            String topic = "first_topic";
+            String value = "Hello World! " + i;
+            String key = "id_" + i;
+
             // Create a Producer Record
-            ProducerRecord<String, String> record = new ProducerRecord<>("first_topic", "Hello World! " + i);
+            ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
+
+            logger.info("Key: {}", key);
 
             // Send data
             producer.send(record, (recordMetadata, e) -> {
@@ -36,10 +44,10 @@ public class ProducerDemoWithCallback {
                     // the record was successfully sent
                     logger.info(
                             "Received new metadata: \n" +
-                                    "Topic: {} \n" +
-                                    "Partition: {} \n" +
-                                    "Offset: {} \n" +
-                                    "Timestamp: {} \n"
+                                    "  Topic: {} \n" +
+                                    "  Partition: {} \n" +
+                                    "  Offset: {} \n" +
+                                    "  Timestamp: {} \n"
                             , recordMetadata.topic()
                             , recordMetadata.partition()
                             , recordMetadata.offset()

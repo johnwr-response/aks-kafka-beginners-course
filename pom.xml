@@ -6,33 +6,12 @@
 
     <groupId>no.responseweb.simplesteph</groupId>
     <artifactId>kafka-beginners-course</artifactId>
+    <packaging>pom</packaging>
     <version>1.0</version>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>2.0.0-alpha1</version>
-<!--            <scope>test</scope>-->
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.0.0-alpha1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.twitter</groupId>
-            <artifactId>hbc-core</artifactId> <!-- or hbc-twitter4j -->
-            <version>2.2.0</version> <!-- or whatever the latest version is -->
-        </dependency>
-
-    </dependencies>
+    <modules>
+        <module>kafka-basics</module>
+        <module>kafka-producer-twitter</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
