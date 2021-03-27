@@ -171,6 +171,10 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
   - [Delete an index from elasticSearch](http://localhost:9200/twitter "DELETE /twitter")
 - Consumer Part 1 - Setup Project
 - Consumer Part 2 - Write the Consumer & Send to ElasticSearch
+- Delivery Semantics for Consumers
+  - At most once: Offsets are committed as soon as the batch is received. Might lose messages from error to end of batch
+  - At least once (default): Offsets are committed after the message is committed. Can result in duplicates if processing is not idempotent
+  - Exactly once: Can be achieved for Kafka => Kafka workflows using Kafka Streams API
 
 # Github setup
 ```
