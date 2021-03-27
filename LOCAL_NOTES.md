@@ -169,6 +169,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
   - [Get a document from elasticSearch](http://localhost:9200/twitter/tweets/1 "GET /twitter/tweets/1")
   - [Delete a document from elasticSearch](http://localhost:9200/twitter/tweets/1 "DELETE /twitter/tweets/1")
   - [Delete an index from elasticSearch](http://localhost:9200/twitter "DELETE /twitter")
+- Consumer Part 1 - Setup Project
 
 # Github setup
 ```

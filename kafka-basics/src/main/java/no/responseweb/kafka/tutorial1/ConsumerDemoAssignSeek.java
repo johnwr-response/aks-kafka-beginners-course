@@ -1,4 +1,4 @@
-package kafka.tutorial1;
+package no.responseweb.kafka.tutorial1;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
