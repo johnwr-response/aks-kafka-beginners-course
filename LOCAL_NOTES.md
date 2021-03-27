@@ -159,6 +159,16 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
 ### Section 10: Kafka ElasticSearch Consumer & Advanced Configurations
 - Consumer and Advanced Configuration Overview
 - Setting up ElasticSearch in the Cloud
+- ElasticSearch 101
+  - [About elasticSearch cluster](http://localhost:9200 "GET localhost:9200")
+  - [elasticSearch cluster health info](http://localhost:9200/_cat/health?v "GET localhost:9200/_cat/health?v")
+  - [elasticSearch cluster nodes info](http://localhost:9200/_cat/nodes?v "GET localhost:9200/_cat/nodes?v")
+  - [elasticSearch indices status](http://localhost:9200/_cat/indices?v "GET localhost:9200/_cat/indices?v")
+  - [Create an index for twitter](http://localhost:9200/twitter "PUT /twitter")
+  - [Add a document to elasticSearch](http://localhost:9200/twitter/tweets/1 "PUT /twitter/tweets/1") Payload some json
+  - [Get a document from elasticSearch](http://localhost:9200/twitter/tweets/1 "GET /twitter/tweets/1")
+  - [Delete a document from elasticSearch](http://localhost:9200/twitter/tweets/1 "DELETE /twitter/tweets/1")
+  - [Delete an index from elasticSearch](http://localhost:9200/twitter "DELETE /twitter")
 
 # Github setup
 ```
