@@ -187,6 +187,9 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
       - If you read from a 100 partitions, you'll need a lot of RAM
     - `fetch.max.bytes` (default 50 MB) Maximum data returned for each fetch request (multiple partitions)
       - The consumer performs multiple fetches in parallel
+- Consumer Offset Commit Strategies
+  - (easy) `enable.auto.commit` = *true* & synchronous processing of batches
+  - (medium) `enable.auto.commit` = *false* & manual commit of offsets
 
 # Github setup
 ```
