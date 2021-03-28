@@ -290,6 +290,8 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
 - Kafka Topics Naming Convention
   - It is very important to choose a consistent naming convention for your topics for consistency
   - [Blog post about Topic Naming Conventions](https://cnr.sh/essays/how-paint-bike-shed-kafka-topic-naming-conventions  "Kafka Topic Naming Conventions")
+- Case Study - `MovieFlix`
+  - See pictures from 3:42 and 3:33 and 5:00 in video
 
 # Github setup
 ```
