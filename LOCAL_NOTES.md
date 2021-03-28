@@ -296,6 +296,8 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
   - See pictures from 3:10 and 4:15 in video
 - Case Study - MySocialMedia
   - See pictures from 3:50 and 5:25 in video
+- Case Study - MyBank
+  - See pictures from 2:30 and 3:38 in video
 
 # Github setup
 ```
