@@ -175,6 +175,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
   - At most once: Offsets are committed as soon as the batch is received. Might lose messages from error to end of batch
   - At least once (default): Offsets are committed after the message is committed. Can result in duplicates if processing is not idempotent
   - Exactly once: Can be achieved for Kafka => Kafka workflows using Kafka Streams API
+- Consumer Part 3 - Idempotence
 
 # Github setup
 ```
