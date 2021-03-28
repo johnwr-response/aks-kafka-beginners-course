@@ -250,6 +250,44 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
 - Which Kafka API should I use?
   - [Blog post about which Kafka API should I use?](https://medium.com/@stephane.maarek/the-kafka-api-battle-producer-vs-consumer-vs-kafka-connect-vs-kafka-streams-vs-ksql-ef584274c1e "The Kafka API Battle: Producer vs Consumer vs Kafka Connect vs Kafka Streams vs KSQL !")
 
+### Section 13: Real World Insights and Case Studies (Big Data / Fast Data)
+- Choosing Partition Count & Replication Factor
+  - `partitions.count`
+    - Each partition can handle a throughput of a few MB/s
+      - **MESASURE YOUR SETUP!!**
+    - More partitions implies:
+      - `+` better parallelism
+      - `+` better throughput
+      - `+` handles more grouped consumers to scale (one pr partition)
+      - `+` ability to utilize more brokers in cluster
+      - `-` more elections to perform by Zookeeper
+      - `-` more files opened by Kafka
+    - **Guidelines:**
+      - Partitions pr topic
+        - Small cluster (<6 brokers): (2 * numberOfBrokers)
+        - Big cluster (<12 brokers): (1 * numberOfBrokers)
+        - Always adjust for number of consumers running in parallel (at peak throughput)
+        - Always adjust for projected producer throughput
+        - **TEST!** Every Kafka cluster will have different performance
+        - Never be an extremist either way
+  - `replication.factor`
+    - Should be at least 2, usually 3, at most 4
+    - The higher the replication factor (N):
+      - `+` Better resilience (N-1 brokers can fail)
+      - `-` **MORE** replication overhead (higher latency if `acks`=all)
+      - `-` **MORE** diskspace used (50% more if RF is set to 3 instead of 2)
+    - **Guidelines:**
+      - Set to 3 to get started (must have at least 3 brokers)
+      - If replication performance becomes an issue, get better broker instead of less RF
+      - **NEVER set to 1 in Production**
+  - Cluster guidelines
+    - A broker should not hold more than 2.000 to 4.000 partitions (combined for all topics on that broker)
+    - A Kafka cluster should not exceed 20.000 partitions across all brokers
+    - (The reasoning is that Zookeeper needs to perform a lot of leader elections in the case when a broker goes down)
+    - If you need more partitions in your cluster, add brokers
+    - If you need more than 20.000 partitions in your cluster, follow the "Netflix model" and create more clusters. (Netflix operates with more than 20 clusters)
+    - Overall, start with a reasonable number and test the performance.
+
 # Github setup
 ```
 git remote add origin https://github.com/johnwr-response/aks-kafka-beginners-course.git
