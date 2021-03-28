@@ -192,6 +192,18 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
   - (medium) `enable.auto.commit` = *false* & manual commit of offsets
 - Consumer Part 4 - Manual Commit of Offsets
 - Consumer Part 5 - Performance Improvement using Batching
+- Consumer Offsets Reset Behaviour
+  - A consumer is expected to read logs continuously
+  - `auto.offset.reset` Behaviour for consumer
+    - `latest` will read from the end of the log
+    - `earliest` will read from start of the log
+    - `none` will throw exception if no offset is found
+  - Consumer offsets can be lost if consumer hasn't read data for 7 days
+    - `offset.retention.minutes` controls this
+  - To replay data for  a consumer group:
+    - Take down all consumers in group
+    - use `kafka-consumer-groups` command to offset to what you want
+    - restart consumers
 
 # Github setup
 ```
