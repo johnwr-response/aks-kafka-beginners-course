@@ -209,6 +209,12 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
 kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group kafka-demo-elasticsearch
 kafka-consumer-groups --bootstrap-server localhost:9092 --group kafka-demo-elasticsearch --reset-offsets --execute --to-earliest --topic twitter_tweets
 ```
+- Consumer Internal Threads
+  - `session.timeout.ms` (Default 10 seconds) If no heartbeat is sent during that period the consumer is considered dead 
+    - Set this value lower to enable faster consumer re-balancing
+  - `heartbeat.interval.ms` (Default 3 seconds) How often heartbeats are to be sent
+    - Generally this should be set to 1/3 of `session.timeout.ms`
+  - `max.poll.interval.ms` (Default 5 minutes) Maximum time between two polls before consumer is declared dead
 
 # Github setup
 ```
