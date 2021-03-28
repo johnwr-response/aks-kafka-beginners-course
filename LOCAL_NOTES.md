@@ -240,6 +240,13 @@ connect-standalone connect-standalone.properties twitter.properties
 kafka-topics --bootstrap-server localhost:9092 --create --topic important_tweets --partitions 3 --replication-factor 1
 kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweets --from-beginning
 ```
+- Kafka Schema Registry Introduction
+  - Has to be separate from Kafka as Kafka should not know the data
+  - Producers and Consumers should have a common Schema 
+  - The Schema registry should be able to reject bad data
+  - Confluent Schema Registry
+    - Apache Avro as the data format
+  - See pictures from 2:34 and 3:33 and 4:01 in video
 
 # Github setup
 ```
