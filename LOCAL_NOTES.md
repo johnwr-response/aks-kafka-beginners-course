@@ -352,6 +352,12 @@ kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-na
     - A smaller value means more segments per partition, Log Compaction happens more often and Kafka needs to have more opened files
   - `log.segment.ms` (Default 1 Week) The time Kafka will wait before committing the segment if not full
     - A smaller value means more often Log Compaction
+- Log Cleanup Policies
+  - Many Kafka clusters make data expire according to a policy. This is called log cleanup.
+  - `log.cleanup.policy`
+    - `delete` (Default for all user topics) Data is deleted based on age (default is 1 week) and on max size (default is -1 which means infinite)
+    - `compact` (Default for the __consumer_offsets topic) Data is deleted based on keys and will delete old duplicate keys after the active segment is committed. This allows for infinite time and space retention
+  - `log.cleaner.backoff.ms` (Default 15 seconds) Controls how often the cleaner should check for work
 
 # Github setup
 ```
