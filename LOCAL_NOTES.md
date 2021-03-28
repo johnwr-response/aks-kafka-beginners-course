@@ -334,6 +334,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
   - Any client can access your Kafka cluster (authentication)
   - Any client can publish/consume any data (authorisation)
   - All data is fully visible on the network (encryption)
+- Kafka Multi Cluster & MirrorMaker
 
 # Github setup
 ```
