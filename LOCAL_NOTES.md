@@ -247,6 +247,8 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
   - Confluent Schema Registry
     - Apache Avro as the data format
   - See pictures from 2:34 and 3:33 and 4:01 in video
+- Which Kafka API should I use?
+  - [Blog post about which Kafka API should I use?](https://medium.com/@stephane.maarek/the-kafka-api-battle-producer-vs-consumer-vs-kafka-connect-vs-kafka-streams-vs-ksql-ef584274c1e "The Kafka API Battle: Producer vs Consumer vs Kafka Connect vs Kafka Streams vs KSQL !")
 
 # Github setup
 ```
