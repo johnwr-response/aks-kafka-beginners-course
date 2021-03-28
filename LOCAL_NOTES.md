@@ -336,6 +336,17 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
   - All data is fully visible on the network (encryption)
 - Kafka Multi Cluster & MirrorMaker
 
+### Section 16: Advanced Topics Configurations
+- Changing a Topic Configuration
+  - [List of configurations](https://kafka.apache.org/documentation/#brokerconfigs)
+```
+kafka-topics --bootstrap-server localhost:9092 --create --topic configured_topic --partitions 3 --replication-factor 1
+kafka-topics --bootstrap-server localhost:9092 --describe --topic configured_topic
+kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name configured_topic --add-config min.insync.replicas=2 --alter
+kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name configured_topic --describe
+kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name configured_topic --delete-config min.insync.replicas --alter
+```
+
 # Github setup
 ```
 git remote add origin https://github.com/johnwr-response/aks-kafka-beginners-course.git
