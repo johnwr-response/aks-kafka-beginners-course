@@ -330,6 +330,10 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
       - Replacing a broker
       - Removing a broker
       - Upgrading a Kafka cluster with zero downtime
+- Kafka Security
+  - Any client can access your Kafka cluster (authentication)
+  - Any client can publish/consume any data (authorisation)
+  - All data is fully visible on the network (encryption)
 
 # Github setup
 ```
