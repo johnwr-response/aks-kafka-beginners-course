@@ -287,6 +287,9 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
     - If you need more partitions in your cluster, add brokers
     - If you need more than 20.000 partitions in your cluster, follow the "Netflix model" and create more clusters. (Netflix operates with more than 20 clusters)
     - Overall, start with a reasonable number and test the performance.
+- Kafka Topics Naming Convention
+  - It is very important to choose a consistent naming convention for your topics for consistency
+  - [Blog post about Topic Naming Conventions](https://cnr.sh/essays/how-paint-bike-shed-kafka-topic-naming-conventions  "Kafka Topic Naming Conventions")
 
 # Github setup
 ```
