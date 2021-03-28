@@ -303,6 +303,12 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
 - Case Study - Logging and Metrics Aggregation
   - See pictures from 1:50 in video
 
+### Section 14: Kafka in the Enterprise for Admins
+- Kafka Cluster Setup High Level Architecture Overview
+  - You will want at least 3 zookeepers
+  - The brokers should be spread across different locations
+  - Try to separate Zookeepers and Brokers on different servers
+
 # Github setup
 ```
 git remote add origin https://github.com/johnwr-response/aks-kafka-beginners-course.git
