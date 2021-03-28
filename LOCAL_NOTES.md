@@ -216,6 +216,10 @@ kafka-consumer-groups --bootstrap-server localhost:9092 --group kafka-demo-elast
     - Generally this should be set to 1/3 of `session.timeout.ms`
   - `max.poll.interval.ms` (Default 5 minutes) Maximum time between two polls before consumer is declared dead
 
+### Section 12: Kafka Extended APIs for Developers
+- Kafka Connect Introduction (Code and connector reuse)
+  - See pictures from 2:19 and 3:52 in video
+
 # Github setup
 ```
 git remote add origin https://github.com/johnwr-response/aks-kafka-beginners-course.git
