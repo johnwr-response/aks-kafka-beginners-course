@@ -308,6 +308,28 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
   - You will want at least 3 zookeepers
   - The brokers should be spread across different locations
   - Try to separate Zookeepers and Brokers on different servers
+- Kafka Monitoring & Operations
+  - Kafka exposes metrics through JMX
+  - Many common places to host Kafka metrics:
+    - ELK
+    - Datadog
+    - NewRelic
+    - Confluent Control Centre
+    - Prometheus
+    - Many, many more
+  - Important metrics to monitor:
+    - Under-replicated partitions. Number of partitions having problems with the IRS (in-sync replicas) may indicate high load
+    - Request handlers. Utilization of threads for IO, network, etc.
+    - Request timing. How long it takes to reply to the requests. Lower is better as the latency will be improved
+    - Kafka operations team must be able to handle these tasks:
+      - Rolling restart of brokers
+      - Updating configurations
+      - Replacing partitions
+      - Increasing replication factor
+      - Adding a broker
+      - Replacing a broker
+      - Removing a broker
+      - Upgrading a Kafka cluster with zero downtime
 
 # Github setup
 ```
