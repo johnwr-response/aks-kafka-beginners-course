@@ -235,6 +235,11 @@ connect-standalone connect-standalone.properties twitter.properties
     - One record at a time processing (no batching)
     - Works the same way for any application size
   - See pictures from 1:22 and 1:52 in video
+- Kafka Streams Hands-On
+```
+kafka-topics --bootstrap-server localhost:9092 --create --topic important_tweets --partitions 3 --replication-factor 1
+kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweets --from-beginning
+```
 
 # Github setup
 ```
