@@ -204,6 +204,11 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
     - Take down all consumers in group
     - use `kafka-consumer-groups` command to offset to what you want
     - restart consumers
+- Consumer Part 6 - Replaying Data
+```
+kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group kafka-demo-elasticsearch
+kafka-consumer-groups --bootstrap-server localhost:9092 --group kafka-demo-elasticsearch --reset-offsets --execute --to-earliest --topic twitter_tweets
+```
 
 # Github setup
 ```
