@@ -346,6 +346,12 @@ kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-na
 kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name configured_topic --describe
 kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name configured_topic --delete-config min.insync.replicas --alter
 ```
+- Segment and Indexes
+  - Topics are made of partitions and partitions are made of segments (files)
+  - `log.segment.bytes` (Default 1 GB) Max size of a single segment in bytes
+    - A smaller value means more segments per partition, Log Compaction happens more often and Kafka needs to have more opened files
+  - `log.segment.ms` (Default 1 Week) The time Kafka will wait before committing the segment if not full
+    - A smaller value means more often Log Compaction
 
 # Github setup
 ```
