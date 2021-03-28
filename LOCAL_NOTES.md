@@ -176,6 +176,17 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
   - At least once (default): Offsets are committed after the message is committed. Can result in duplicates if processing is not idempotent
   - Exactly once: Can be achieved for Kafka => Kafka workflows using Kafka Streams API
 - Consumer Part 3 - Idempotence
+- Consumer Poll Behaviour
+  - Kafka consumers have  a "poll" model. Other messaging systems typically has a "push" model 
+    - This allows consumers control over where and how fast in the topic to consume, this also gives the ability to replay events
+    - `fetch.min.bytes` (default 1) Controls how much data to pull at least on each request
+      - Helps to improve throughput and decrease number of requests at the cost of latency
+    - `max.poll.records` (default 500) Controls how many records to receive per poll request
+      - Increase if your messages are very small, and you have a lot of RAM
+    - `max.partitions.fetch.bytes` (default 1 MB) Maximum data returned by the broker per partition
+      - If you read from a 100 partitions, you'll need a lot of RAM
+    - `fetch.max.bytes` (default 50 MB) Maximum data returned for each fetch request (multiple partitions)
+      - The consumer performs multiple fetches in parallel
 
 # Github setup
 ```
