@@ -219,6 +219,14 @@ kafka-consumer-groups --bootstrap-server localhost:9092 --group kafka-demo-elast
 ### Section 12: Kafka Extended APIs for Developers
 - Kafka Connect Introduction (Code and connector reuse)
   - See pictures from 2:19 and 3:52 in video
+- Kafka Connect Twitter Hands-On
+```
+kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_status_connect --partitions 3 --replication-factor 1
+kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_deletes_connect --partitions 3 --replication-factor 1
+kafka-topics --bootstrap-server localhost:9092 --list
+kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_status_connect --from-beginning
+connect-standalone connect-standalone.properties twitter.properties
+```
 
 # Github setup
 ```
