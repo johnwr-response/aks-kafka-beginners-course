@@ -227,6 +227,14 @@ kafka-topics --bootstrap-server localhost:9092 --list
 kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_status_connect --from-beginning
 connect-standalone connect-standalone.properties twitter.properties
 ```
+- Kafka Streams Introduction
+  - Kafka Streams is a library for easy data processing and transformation within Kafka
+    - Standard java application
+    - Highly scalable, elastic and fault tolerant
+    - Exactly once capabilities
+    - One record at a time processing (no batching)
+    - Works the same way for any application size
+  - See pictures from 1:22 and 1:52 in video
 
 # Github setup
 ```
