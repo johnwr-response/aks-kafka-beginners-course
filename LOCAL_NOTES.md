@@ -298,6 +298,8 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic important_tweet
   - See pictures from 3:50 and 5:25 in video
 - Case Study - MyBank
   - See pictures from 2:30 and 3:38 in video
+- Case Study - Big Data Ingestion
+  - See pictures from 0:34 and 1:40 in video
 
 # Github setup
 ```
