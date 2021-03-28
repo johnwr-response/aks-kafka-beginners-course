@@ -190,6 +190,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
 - Consumer Offset Commit Strategies
   - (easy) `enable.auto.commit` = *true* & synchronous processing of batches
   - (medium) `enable.auto.commit` = *false* & manual commit of offsets
+- Consumer Part 4 - Manual Commit of Offsets
 
 # Github setup
 ```
