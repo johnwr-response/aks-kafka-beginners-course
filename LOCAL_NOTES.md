@@ -364,12 +364,22 @@ kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-na
     - Lower number means that less amount of data is retained and if consumers are down longer they can miss data. 
   - `log.retention.bytes` (default is -1 infinite) max size in bytes for each partition
 - Log Compaction Theory
+  - Obs: There is a bug in Kafka that makes log compaction not work with Windows. It will in-fact crash Kafka, just as deleting topics
   - Log Compaction ensures that your log contains at least the last known value for a specific key within a partition. Useful when only latest snapshot is required instead of full history. 
   - `delete.retention.ms` (default 24 hours) controls how long consumers can see the deleted records
   - Log Compaction can sometimes fail. Restart Kafka if this happens (This is a known bug)
   - Log Compaction can not be triggered by API
   - `min.compaction.lag.ms` (default 0) how long to wait before a message can be compacted
   - `min.cleanable.dirty.ratio` (default 0.5) higher => less. more efficient cleaning. Lower => more often but less efficient cleaning
+- Log Compaction Practice
+
+```
+# DO NOT DO THIS ON WINDOWS!!!
+kafka-topics --bootstrap-server localhost:9092 --create --topic employee-salary --partitions 1 --replication-factor 1 --config cleanup.policy=compact --config min.cleanable.dirty.ratio=0.001 --config segment.ms=5000
+kafka-topics --bootstrap-server localhost:9092 --describe --topic employee-salary
+kafka-console-consumer --bootstrap-server localhost:9092 --topic employee-salary --from-beginning --property print.key=true --property key.separator=,
+kafka-console-producer --broker-list localhost:9092 --topic employee-salary --property parse.key=true --property key.separator=,
+```
 
 # Github setup
 ```
