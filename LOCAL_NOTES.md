@@ -358,6 +358,11 @@ kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-na
     - `delete` (Default for all user topics) Data is deleted based on age (default is 1 week) and on max size (default is -1 which means infinite)
     - `compact` (Default for the __consumer_offsets topic) Data is deleted based on keys and will delete old duplicate keys after the active segment is committed. This allows for infinite time and space retention
   - `log.cleaner.backoff.ms` (Default 15 seconds) Controls how often the cleaner should check for work
+- Log Cleanup Delete
+  - `log.retention.hours` (default is 1 week) number of hours to keep data
+    - Higher number means more disk space used, but enables longer replays
+    - Lower number means that less amount of data is retained and if consumers are down longer they can miss data. 
+  - `log.retention.bytes` (default is -1 infinite) max size in bytes for each partition
 
 # Github setup
 ```
