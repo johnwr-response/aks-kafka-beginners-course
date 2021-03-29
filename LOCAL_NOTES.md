@@ -363,6 +363,13 @@ kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-na
     - Higher number means more disk space used, but enables longer replays
     - Lower number means that less amount of data is retained and if consumers are down longer they can miss data. 
   - `log.retention.bytes` (default is -1 infinite) max size in bytes for each partition
+- Log Compaction Theory
+  - Log Compaction ensures that your log contains at least the last known value for a specific key within a partition. Useful when only latest snapshot is required instead of full history. 
+  - `delete.retention.ms` (default 24 hours) controls how long consumers can see the deleted records
+  - Log Compaction can sometimes fail. Restart Kafka if this happens (This is a known bug)
+  - Log Compaction can not be triggered by API
+  - `min.compaction.lag.ms` (default 0) how long to wait before a message can be compacted
+  - `min.cleanable.dirty.ratio` (default 0.5) higher => less. more efficient cleaning. Lower => more often but less efficient cleaning
 
 # Github setup
 ```
