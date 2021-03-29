@@ -372,7 +372,6 @@ kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-na
   - `min.compaction.lag.ms` (default 0) how long to wait before a message can be compacted
   - `min.cleanable.dirty.ratio` (default 0.5) higher => less. more efficient cleaning. Lower => more often but less efficient cleaning
 - Log Compaction Practice
-
 ```
 # DO NOT DO THIS ON WINDOWS!!!
 kafka-topics --bootstrap-server localhost:9092 --create --topic employee-salary --partitions 1 --replication-factor 1 --config cleanup.policy=compact --config min.cleanable.dirty.ratio=0.001 --config segment.ms=5000
@@ -380,6 +379,9 @@ kafka-topics --bootstrap-server localhost:9092 --describe --topic employee-salar
 kafka-console-consumer --bootstrap-server localhost:9092 --topic employee-salary --from-beginning --property print.key=true --property key.separator=,
 kafka-console-producer --broker-list localhost:9092 --topic employee-salary --property parse.key=true --property key.separator=,
 ```
+- `min.insync.replicas` reminder
+  - `acks`=all MUST be used in conjunction with `min.insync.replicas`
+  - `min.insync.replicas` can be set at the broker level or at the topic level (to override)
 
 # Github setup
 ```
