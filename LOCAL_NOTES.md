@@ -387,6 +387,19 @@ kafka-console-producer --broker-list localhost:9092 --topic employee-salary --pr
   - this will improve availability but will lose data because other messages on ISR will be discarded. (availability or consistency)
   - Use cases include metrics collection, log collection and other cases when data loss is somewhat acceptable at the trade-off of availability
 
+### Section 18: Annex - Starting Kafka Differently
+- Starting Kafka with the Confluent CLI
+- Starting a multi broker Kafka Cluster using Binaries
+- Note on Docker Setup
+  - [Docker Compose Scripts for running Kafka](https://github.com/conduktor/kafka-stack-docker-compose)
+- Start Kafka Development environment using Docker
+- Starting a multi broker Kafka Cluster using Docker
+- Kafka Advertised Host Setting
+  - `advertised.listeners` in `config/server.properties`
+    - If clients are on your private network, use internal private ip or private dns hostname
+    - If clients are on a public network, use external public ip or external public dns hostname
+- Starting Kafka on a Remote Machine
+
 # Github setup
 ```
 git remote add origin https://github.com/johnwr-response/aks-kafka-beginners-course.git
