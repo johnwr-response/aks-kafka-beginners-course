@@ -382,6 +382,10 @@ kafka-console-producer --broker-list localhost:9092 --topic employee-salary --pr
 - `min.insync.replicas` reminder
   - `acks`=all MUST be used in conjunction with `min.insync.replicas`
   - `min.insync.replicas` can be set at the broker level or at the topic level (to override)
+- Unclean Leader Election
+  - `unclean.leader.election` if all your ISR die, you can set this to true to start producing anyway to your non ISR partitions
+  - this will improve availability but will lose data because other messages on ISR will be discarded. (availability or consistency)
+  - Use cases include metrics collection, log collection and other cases when data loss is somewhat acceptable at the trade-off of availability
 
 # Github setup
 ```
